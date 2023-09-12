@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { TextField } from '@mui/material'
+import {useMediaQuery} from '@mui/material';
 import Controls from "./Controls"
 const LENGTH_LIMIT = 15
 
@@ -8,6 +9,7 @@ export default ({initialText}) => {
   const [charCount, setCharCount] = useState(text.length)
   const [angleStep, setAngleStep] = useState(360 / (charCount + 1))
   const radius = 100;
+  const isMobile = useMediaQuery("600px");
 
   const shuffleString = s => s.split('').sort(() => 0.5 - Math.random()).join('');
   
@@ -59,10 +61,11 @@ export default ({initialText}) => {
         })}
       </div>
       <TextField
-        style={{marginTop: 50}}
+        style={{marginTop: 50, width: 300}}
         placeholder="Enter letters to anagram" 
         value={text} 
         onChange={handleChange} 
+        
       />
       <Controls 
         handleShuffle={handleShuffle}
