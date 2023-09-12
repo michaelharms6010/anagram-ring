@@ -52,6 +52,7 @@ export default function ToggleColorMode() {
       toggleColorMode: () => {
         setMode(prevMode => {
           const newMode = (prevMode === 'light' ? 'dark' : 'light')
+          document.querySelector("html").style.background = newMode == 'light' ? "white" : "#121212"
           localStorage.setItem("lighting-mode", newMode)
           return newMode
         });
