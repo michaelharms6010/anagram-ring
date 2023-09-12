@@ -45,11 +45,16 @@ function App() {
 
 
 export default function ToggleColorMode() {
-  const [mode, setMode] = React.useState('light');
+  const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [mode, setMode] = React.useState(localStorage.getItem("lighting-mode") || (userPrefersDark ? 'dark' : 'light'));
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        setMode(prevMode => {
+          const newMode = (prevMode === 'light' ? 'dark' : 'light')
+          localStorage.setItem("lighting-mode", newMode)
+          return newMode
+        });
       },
     }),
     [],
