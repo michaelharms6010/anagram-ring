@@ -9,7 +9,6 @@ import CircularText from "./components/CurvedText"
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
-
 function App() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
@@ -25,18 +24,17 @@ function App() {
         color: 'text.primary',
         minHeight: '100vh',
       }}
-    >
-      
-    <div class='App'>
-      <Typography variant='h3'>Anagram Ring Helper
-      <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-        {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-      </IconButton>
-      </Typography>
-      
-      <br/>
-      <CircularText text="Hello World" />
-    </div>
+    >     
+      <div class='App'>
+        <Typography variant='h3'>Anagram Ring Helper
+        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+          {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+        </Typography>
+        
+        <br/>
+        <CircularText text="Hello World" />
+      </div>
     </Box>
   );
 }
