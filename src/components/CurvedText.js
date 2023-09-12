@@ -7,9 +7,10 @@ export default ({initialText}) => {
   const [text, setText] = useState(initialText || "")
   const [charCount, setCharCount] = useState(text.length)
   const [angleStep, setAngleStep] = useState(360 / (charCount + 1))
-  const radius = 100; // Define radius as required
+  const radius = 100;
 
   const shuffleString = s => s.split('').sort(() => 0.5 - Math.random()).join('');
+  
   const handleShuffle = _ => {
     setText(shuffleString(text))
   }
@@ -22,10 +23,7 @@ export default ({initialText}) => {
   }, [text])
 
   const getCirclePosition = (angle, radius) => {
-      // Convert the angle to radians
       const radian = (angle * Math.PI) / 180;
-      
-      // Calculate x and y using sin and cos
       const x = radius + (radius * Math.sin(radian));
       const y = radius + (radius * Math.cos(radian));
       
@@ -37,10 +35,6 @@ export default ({initialText}) => {
       setText(e.target.value.replace(/[^a-z]/ig, ""))
     }
   }
-
-      // const text = this.props.text.replace(/[^a-z]/ig, "");
-
-
       return (
         <div className="curved-text-container">
       
@@ -58,7 +52,6 @@ export default ({initialText}) => {
                       left: `${position.x}px`,
                       top: `${position.y}px`,
                       fontSize: 24
-                      // transform: `rotate(${angle + 90}deg)`
                   }}
                 >
                   {char.toUpperCase()}
