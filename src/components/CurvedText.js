@@ -34,7 +34,7 @@ export default ({initialText}) => {
 
   const handleChange = e => {
     if (e.target.value.length <= LENGTH_LIMIT) {
-      setText(e.target.value.replace(/[^a-z]/ig, ""))
+      setText(e.target.value.replace(/[^a-z]/ig, "").toUpperCase())
     }
   }
   
@@ -55,7 +55,7 @@ export default ({initialText}) => {
                   fontSize: 24
               }}
             >
-              {char.toUpperCase()}
+              {char}
             </div>
           );
         })}
