@@ -23,9 +23,7 @@ function App() {
         justifyContent: 'center',
         bgcolor: 'background.default',
         color: 'text.primary',
-        borderRadius: 1,
         minHeight: '100vh',
-        p: 3,
       }}
     >
       
