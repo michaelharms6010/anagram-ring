@@ -38,8 +38,6 @@ export default ({initialText}) => {
   
   return (
     <div className="curved-text-container">
-  
-
       <div style={{ marginBottom: 10, position: 'relative', width: 2*radius, height: 2*radius }}>
         {Array.from(text).map((char, index) => {
           const angle = angleStep * index;
@@ -70,10 +68,8 @@ export default ({initialText}) => {
         handleShuffle={handleShuffle}
         handleReset={handleReset}
         text={text}
-
       />
     </div>
   );
   
 }
-
