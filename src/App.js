@@ -26,14 +26,14 @@ function App() {
       }}
     >     
       <div class='App'>
-        <Typography variant='h3'>Anagram Ring Helper
-        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-          {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
+        <Typography variant='h3'>AnagramRing.com
+          <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
         </Typography>
         
         <br/>
-        <CircularText text="Hello World" />
+        <CircularText />
       </div>
     </Box>
   );

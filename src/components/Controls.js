@@ -8,5 +8,4 @@ export default ({handleShuffle, handleReset, text}) => {
       <Button variant="outlined" onClick={handleReset} disabled={!text.length}>Reset</Button>
     </div>
   )
-
 }
