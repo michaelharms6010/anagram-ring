@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.scss';
 import * as React from 'react';
 import {IconButton, Typography, Box} from '@mui/material';
@@ -48,7 +47,7 @@ export default function ToggleColorMode() {
       toggleColorMode: () => {
         setMode(prevMode => {
           const newMode = (prevMode === 'light' ? 'dark' : 'light')
-          document.querySelector("html").style.background = newMode == 'light' ? "white" : "#121212"
+          document.querySelector("html").style.background = newMode === 'light' ? "white" : "#121212"
           localStorage.setItem("lighting-mode", newMode)
           return newMode
         });
