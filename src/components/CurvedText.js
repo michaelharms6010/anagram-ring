@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { TextField } from '@mui/material'
 import Controls from "./Controls"
 const LENGTH_LIMIT = 15
@@ -8,14 +8,19 @@ export default ({initialText}) => {
   const [charCount, setCharCount] = useState(text.length)
   const [angleStep, setAngleStep] = useState(360 / (charCount + 1))
   const radius = 100;
+  const textInputRef = useRef(null);
 
   const shuffleString = str => [...str].sort( _ => 0.5 - Math.random() ).join('');
   
   const handleShuffle = _ => {
     setText(shuffleString(text))
+    textInputRef.current.focus();  
   }
 
-  const handleReset = _ => setText("")
+  const handleReset = _ => {
+      setText("")
+      textInputRef.current.focus();  
+  }
 
   useEffect(_ => {
     setCharCount(text.length)
@@ -62,7 +67,8 @@ export default ({initialText}) => {
         style={{marginTop: 50, width: 300}}
         placeholder="Enter letters to anagram" 
         value={text} 
-        onChange={handleChange}         
+        onChange={handleChange}   
+        inputRef={textInputRef}      
       />
       <Controls 
         handleShuffle={handleShuffle}
