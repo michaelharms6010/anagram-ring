@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextField } from '@mui/material'
 import Controls from "./Controls"
 const LENGTH_LIMIT = 15
@@ -8,7 +8,6 @@ export default function CurvedText({initialText}) {
   const [charCount, setCharCount] = useState(text.length)
   const [angleStep, setAngleStep] = useState(360 / (charCount + 1))
   const radius = 100;
-  const textInputRef = useRef(null);
 
   const shuffleString = str => [...str].sort( _ => 0.5 - Math.random() ).join('');
   
@@ -20,13 +19,10 @@ export default function CurvedText({initialText}) {
 
   const handleReset = _ => setText("")
 
-
   useEffect(_ => {
     setCharCount(text.length)
     setAngleStep(360 / (text.length))
   }, [text])
-
-  useEffect(_ => textInputRef.current.focus(), [])
 
   const getCirclePosition = (angle, radius) => {
     const radian = (angle * Math.PI) / 180;
@@ -69,7 +65,7 @@ export default function CurvedText({initialText}) {
         placeholder="Enter letters to anagram" 
         value={text} 
         onChange={handleChange}   
-        inputRef={textInputRef}         
+        autoFocus      
       />
       <Controls 
         handleMouseDown={handleMouseDown} 
